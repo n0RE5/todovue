@@ -1,0 +1,32 @@
+@mixin todo_icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 50px;
+    border-radius: 10px;
+    margin-right: 20px;
+    font-size: 28px;
+    font-weight: 800;
+    &[data-type="I"] {
+        background-color: #f6c9cc;
+        color: red;
+        &::before {
+            content: "I";
+        }
+    }
+    &[data-type="L"] {
+        background-color: #e4d8fa;
+        color: #a35dff;
+        &::before {
+            content: "L";
+        }
+    }
+    &[data-type="T"] {
+        background-color: #f7eac8;
+        color: #ffb404;
+        &::before {
+            content: "T";
+        }
+    }
+}
