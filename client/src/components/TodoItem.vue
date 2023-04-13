@@ -2,13 +2,14 @@
     <div @click="readTodo" class="todo">
         <span class='todo_icon' :data-type="icon"/>
         <div class='todo_preview'>{{ title }}</div>
-        <div class="todo_date">{{ createdAt }}</div>
+        <div class="todo_date">{{ date }}</div>
         <a @click="$event => deleteTodo($event)" class="todo_delete"/>
     </div>
 </template>
 
 <script>
 import { removeTodo } from '@/http/todoAPI'
+import { parseRawDate } from '@/utils/formatDate'
 
 export default {
     props: {
@@ -33,6 +34,11 @@ export default {
             required: true
         },
     },
+    data() {
+        return {
+            date: ''
+        }
+    },  
     methods: {
         readTodo() {
             const data = {
@@ -43,6 +49,9 @@ export default {
             this.$store.commit('switchTodoReadModal')
             this.$store.commit('setReadModalData', data)
         },
+        format() {
+            this.date = parseRawDate(this.createdAt)
+        },
         async deleteTodo(event) {
             try {
                 event.stopPropagation()
@@ -52,6 +61,9 @@ export default {
                 console.log(error);
             }
         }
+    },
+    mounted() {
+        this.format()
     }
 }
 </script>
