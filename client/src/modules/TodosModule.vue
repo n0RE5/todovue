@@ -7,9 +7,11 @@
                 add
             </a>
         </div>
-        <div class="media_recenttodos">Recent todos</div>
-        <hr class="hr" />
-        <TodoList :todos="$store.state.todo.todos"/>
+        <div class="media_content">
+            <div class="media_recenttodos">Recent todos</div>
+            <hr class="hr" />
+            <TodoList :todos="$store.state.todo.todos"/>
+        </div>
         <TodoModal />
         <TodoReadModal/>
     </div>
@@ -47,7 +49,7 @@ export default {
 <style lang="scss" scoped>
 @import '../styles/variables.scss';
 .media {
-    padding: 0 150px;
+    margin: 0 80px;
     flex: auto;
 }
 
@@ -56,6 +58,10 @@ export default {
     font-size: 22px;
     margin-top: 40px;
     margin-left: 36px;
+}
+
+.media_content {
+    overflow: hidden;
 }
 
 .hr {
@@ -118,4 +124,33 @@ export default {
         }
     }
 }
+
+@media (min-width: $small) and (max-width: $small-s) {
+    .media {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        width: calc( 100vw - 24px );
+        margin: 12px;
+    }
+}
+
+@media (min-width: $medium) and (max-width: $medium-s) {
+    .media {
+        margin: 12px;
+    }
+}
+
+@media (min-width: $large) and (max-width: $large-s) {
+    .media {
+        margin: 16px;
+    }
+}
+
+@media (min-width: $big) and (max-width: $big-s) {
+    .media {
+        margin: 24px;
+    }
+}
+
 </style>

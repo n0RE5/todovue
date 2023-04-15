@@ -2,6 +2,7 @@ export const modalsModule = {
     state: () => ({
         todoModalActive: false,
         todoReadModalActive: false,
+        burgerActive: false,
         todoReadModal: {
             title: '',
             icon: '',
@@ -17,6 +18,9 @@ export const modalsModule = {
         },
         setReadModalData(state, data) {
             state.todoReadModal = data
+        },
+        switchBurgerState(state) {
+            state.burgerActive = !state.burgerActive
         }
     },
 }

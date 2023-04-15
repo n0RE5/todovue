@@ -70,6 +70,7 @@ export default {
 
 <style lang="scss" scoped>
 @import '../styles/globals.scss';
+@import '../styles/variables.scss';
 .todo {
     transition: .2s ease-in;
     background-color: #f5f7f9;
@@ -89,7 +90,7 @@ export default {
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
-    width: 350px;
+    flex: 1;
     color: #2e3554;
     font-size: 18px;
 }
@@ -124,4 +125,19 @@ export default {
 .todo_icon {
     @include todo_icon;
 }
+
+@media (min-width: $small) and (max-width: $small-s) {
+
+    .todo_date {
+        display: none;
+    }
+}
+
+@media (min-width: $medium) and (max-width: $medium-s) {
+
+.todo_date {
+    display: none;
+}
+}
+
 </style>

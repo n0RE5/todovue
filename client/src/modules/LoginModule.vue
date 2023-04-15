@@ -13,8 +13,8 @@
             </div>
             <button v-if="login" @click="auth" class="auth_btn">Login</button>
             <button v-else @click="auth" class="auth_btn">Register</button>
-            <div class="switch" v-if="login">Have an account? <button @click="login = !login">Login</button></div>
-            <div class="switch" v-else>No account? <button @click="login = !login">Register</button></div>
+            <div class="switch" v-if="login">No account? <button @click="login = !login">Register</button></div>
+            <div class="switch" v-else="login">Have an account? <button @click="login = !login">Login</button></div>
         </div>
     </div>
 </template>

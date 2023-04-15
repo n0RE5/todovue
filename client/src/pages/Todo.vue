@@ -2,15 +2,17 @@
     <div class="flex">
         <TodosModule/>
         <SidebarModule/>
+        <Burger/>
     </div>
   </template>
   
 <script>
 import TodosModule from '@/modules/TodosModule.vue';
 import SidebarModule from '@/modules/SidebarModule.vue';
+import Burger from '@/components/Burger.vue';
 export default {
   components: {
-    TodosModule, SidebarModule
+    TodosModule, SidebarModule, Burger
   }
 }
 </script>
